@@ -1,0 +1,457 @@
+/* ============================================
+   RESET E CONFIGURAÇÕES GLOBAIS
+   ============================================ */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+:root {
+    --primaria: #4f46e5;
+    --secundaria: #7c3aed;
+    --escuro: #0f172a;
+    --maisEscuro: #0a0f1c;
+    --claro: #e2e8f0;
+    --vidro: rgba(255, 255, 255, 0.1);
+}
+
+body {
+    background-color: var(--escuro);
+    color: var(--claro);
+    line-height: 1.6;
+}
+
+/* ============================================
+   NAVEGAÇÃO
+   ============================================ */
+.navegacao {
+    position: fixed;
+    top: 0;
+    background: rgba(15, 23, 42, 0.8);
+    backdrop-filter: blur(10px);
+    width: 100%;
+    z-index: 100;
+    padding: 1.5rem;
+}
+
+.menu {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    gap: 3rem;
+}
+
+.menu-link {
+    text-decoration: none;
+    color: var(--claro);
+    font-weight: 500;
+    position: relative;
+    padding: 0.5rem 0;
+    transition: color 0.3s ease;
+}
+
+.menu-link::after {
+    content: '';
+    height: 2px;
+    width: 0;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background: linear-gradient(90deg, var(--primaria), var(--secundaria));
+    transition: width 0.5s ease;
+}
+
+.menu-link:hover {
+    color: #fff;
+}
+
+.menu-link:hover::after {
+    width: 100%;
+}
+
+/* ============================================
+   CABEÇALHO / HERO
+   ============================================ */
+.cabecalho {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 10rem 2rem 4rem;
+    min-height: 100vh;
+}
+
+.foto-perfil {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    box-shadow: 0 0 20px rgba(79, 70, 229, 0.3);
+    border-radius: 50%;
+    border: 4px solid var(--vidro);
+    margin-bottom: 1.5rem;
+}
+
+.cabecalho h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    background: linear-gradient(90deg, var(--primaria), var(--secundaria));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 0.5rem;
+}
+
+.cargo {
+    font-size: 1.2rem;
+    opacity: 0.85;
+}
+
+/* ============================================
+   BOTÕES DE CONTATO (LinkedIn, WhatsApp, GitHub)
+   ============================================ */
+.contato-links {
+    display: flex;
+    gap: 1rem;
+    margin-top: 2rem;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.social-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.7rem 1.3rem;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: var(--claro);
+    background: var(--vidro);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.social-link svg {
+    transition: transform 0.3s ease;
+}
+
+.social-link:hover {
+    transform: translateY(-4px);
+    color: #fff;
+}
+
+.social-link:hover svg {
+    transform: scale(1.15);
+}
+
+/* LinkedIn */
+.social-link.linkedin:hover {
+    background: #0a66c2;
+    border-color: #0a66c2;
+    box-shadow: 0 8px 20px rgba(10, 102, 194, 0.4);
+}
+
+/* WhatsApp */
+.social-link.whatsapp:hover {
+    background: #25d366;
+    border-color: #25d366;
+    box-shadow: 0 8px 20px rgba(37, 211, 102, 0.4);
+}
+
+/* GitHub */
+.social-link.github:hover {
+    background: #333;
+    border-color: #333;
+    box-shadow: 0 8px 20px rgba(51, 51, 51, 0.5);
+}
+
+/* ============================================
+   SOBRE MIM
+   ============================================ */
+.sobre {
+    padding: 5rem 2rem;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.sobre-titulo {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.sobre-titulo::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(90deg, var(--primaria), var(--secundaria));
+    margin: 0.5rem auto 0;
+    border-radius: 2px;
+}
+
+.sobre-caixa {
+    background: var(--vidro);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    padding: 2rem;
+    backdrop-filter: blur(10px);
+}
+
+.sobre-paragrafo {
+    color: var(--claro);
+    opacity: 0.9;
+    margin-bottom: 1rem;
+    text-align: justify;
+    font-size: 1rem;
+    line-height: 1.7;
+}
+
+.sobre-paragrafo:last-child {
+    margin-bottom: 0;
+}
+
+/* ============================================
+   PROJETOS
+   ============================================ */
+.projetos {
+    padding: 5rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.projetos-titulo {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 3rem;
+    text-align: center;
+}
+
+.projetos-titulo::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(90deg, var(--primaria), var(--secundaria));
+    margin: 0.5rem auto 0;
+    border-radius: 2px;
+}
+
+.projetos-caixa {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.projetos-card {
+    background: var(--vidro);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    overflow: hidden;
+    backdrop-filter: blur(10px);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.projetos-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 30px rgba(79, 70, 229, 0.3);
+}
+
+.projetos-imagem {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    display: block;
+}
+
+.info-projetos {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #fff;
+    padding: 1rem 1.5rem 0.5rem;
+}
+
+.projetos-card p {
+    color: var(--claro);
+    opacity: 0.85;
+    padding: 0 1.5rem 1rem;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    flex-grow: 1;
+}
+
+/* ============================================
+   BOTÃO "CONHECER PROJETO"
+   ============================================ */
+.botao-projeto {
+    display: inline-block;
+    align-self: flex-start;
+    margin: 0 1.5rem 1.5rem;
+    padding: 0.7rem 1.5rem;
+    background: linear-gradient(90deg, var(--primaria), var(--secundaria));
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(79, 70, 229, 0.3);
+}
+
+.botao-projeto:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(79, 70, 229, 0.5);
+    background: linear-gradient(90deg, var(--secundaria), var(--primaria));
+}
+
+/* ============================================
+   CONTATO
+   ============================================ */
+.contatos {
+    padding: 5rem 2rem;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.contatos-titulo {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.contatos-titulo::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(90deg, var(--primaria), var(--secundaria));
+    margin: 0.5rem auto 0;
+    border-radius: 2px;
+}
+
+.formulario-contato {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.grupo-form {
+    width: 100%;
+}
+
+.campo-form,
+.text-form {
+    width: 100%;
+    padding: 1rem;
+    background: var(--vidro);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    color: var(--claro);
+    font-size: 1rem;
+    font-family: inherit;
+    outline: none;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.campo-form::placeholder,
+.text-form::placeholder {
+    color: rgba(226, 232, 240, 0.5);
+}
+
+.campo-form:focus,
+.text-form:focus {
+    border-color: var(--primaria);
+    box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.2);
+}
+
+.text-form {
+    min-height: 150px;
+    resize: vertical;
+}
+
+.botao-form {
+    padding: 1rem 2rem;
+    background: linear-gradient(90deg, var(--primaria), var(--secundaria));
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.botao-form:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(79, 70, 229, 0.4);
+}
+
+/* ============================================
+   RESPONSIVIDADE
+   ============================================ */
+@media (max-width: 768px) {
+    .menu {
+        gap: 1.5rem;
+        font-size: 0.9rem;
+    }
+
+    .foto-perfil {
+        width: 150px;
+        height: 150px;
+    }
+
+    .cabecalho h1 {
+        font-size: 2rem;
+    }
+
+    .cargo {
+        font-size: 1rem;
+    }
+
+    .sobre-titulo,
+    .projetos-titulo,
+    .contatos-titulo {
+        font-size: 1.6rem;
+    }
+
+    .projetos-caixa {
+        grid-template-columns: 1fr;
+    }
+
+    .contato-links {
+        gap: 0.6rem;
+    }
+
+    .social-link {
+        padding: 0.6rem 1rem;
+        font-size: 0.85rem;
+    }
+}
+
+@media (max-width: 400px) {
+    .social-link span {
+        display: none;
+    }
+
+    .social-link {
+        padding: 0.8rem;
+        border-radius: 50%;
+    }
+}
